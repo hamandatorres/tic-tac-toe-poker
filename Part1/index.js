@@ -1,8 +1,9 @@
-const progress = []
+const progress = [];
 
 function play(clickedId) {
   const playerSpan = document.getElementById('player');
   const clickedElement = document.getElementById(clickedId);
+
   if (playerSpan.innerText === 'X') {
     playerSpan.innerText = 'O';
     clickedElement.innerText = 'X';
@@ -12,7 +13,7 @@ function play(clickedId) {
     clickedElement.innerText = 'O';
     progress[clickedId] = 'O';
   } 
-  console.log(progress);
+console.log(progress);
 const topLeft = progress[0];
 const topCenter = progress[1];
 const topRight = progress[2];
@@ -56,3 +57,12 @@ if (topLeft !== undefined && topLeft === middleCenter && topLeft === bottomRight
 }
 }
 
+let progressFull = true;
+  for (let i = 0; i <= 8; i++) {
+    if (progress[i] === undefined) {
+      progressFull = false;
+    }
+  }
+  if (progressFull === true) {
+    alert("Cat's game, there is no winner");
+  }
